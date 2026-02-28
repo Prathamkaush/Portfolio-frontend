@@ -1,52 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import SciFiBackground from "./components/SciFiBackground";
-import { useTheme } from "./components/ThemeContext";
+import HomePage from "./pages/HomePage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 export default function App() {
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    if (theme === "sci-fi") {
-      document.body.classList.add("sci-fi-active");
-      document.body.classList.remove("chaos-active");
-    } else {
-      document.body.classList.add("chaos-active");
-      document.body.classList.remove("sci-fi-active");
-    }
-  }, [theme]);
-
   return (
-    <div className="relative min-h-screen text-slate-100 overflow-hidden">
-      {/* === Background depends on theme === */}
-      {theme === "sci-fi" ? (
-        <>
-          <div className="sci-fi-bg"></div>
-          <SciFiBackground key={theme} />
-        </>
-      ) : (
-        <div className="chaos-bg"></div>
-      )}
-
-      {/* ✅ Only ONE Navbar (with integrated theme switcher) */}
-      <Navbar />
-
-      {/* === Push content below navbar === */}
-      <main className="max-w-5xl mx-auto px-6 pt-28 md:pt-32">
-        <Hero />
-        <Projects />
-        <Skills />
-        <About />
-        <Contact />
-      </main>
-
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen text-zinc-100 overflow-x-hidden">
+        <div className="app-bg" aria-hidden="true" />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }

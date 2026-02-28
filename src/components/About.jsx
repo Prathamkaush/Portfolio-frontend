@@ -1,58 +1,37 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const summary = `Backend-focused Full-Stack Engineer with hands-on experience designing, building, and operating production-grade web platforms. Proven ability to own complete backend systems including authentication, payments, logistics, role-based access control, and scalable deployments. Experienced with event-driven architectures using Kafka and Redis, modern ORM-based database design, and production infrastructure. Actively seeking a backend or full-stack role in a product-driven team.`;
+
 export default function About() {
   return (
-    <section id="about" className="py-24 text-center">
+    <section id="about" className="py-20">
       <motion.h2
-        className="text-4xl font-semibold mb-8 text-cyan-400 drop-shadow-[0_0_8px_rgba(0,255,255,0.4)]"
-        initial={{ opacity: 0, y: 30 }}
+        className="section-heading text-center text-2xl md:text-3xl"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-        animate={{ opacity: 1, y: 0 }}
-
+        transition={{ duration: 0.4 }}
       >
         About Me
       </motion.h2>
-
       <motion.div
         className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
       >
-        {/* ==== Profile Image Section ==== */}
-        <div className="relative group md:mr-6"> {/* added margin-right */}
+        <div className="relative shrink-0 group">
           <img
             src="/images/pratham.png"
             alt="Pratham Kaushik"
-            className="w-52 h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-cyan-300 shadow-[0_0_12px_rgba(0,255,255,0.3)] transition-transform duration-500 group-hover:scale-105"
+            className="w-48 h-48 md:w-56 md:h-56 rounded-2xl object-cover border border-zinc-700/50 shadow-xl transition-transform duration-300 group-hover:scale-[1.02]"
           />
-
-          {/* softer blue aura */}
-          <div className="absolute inset-0 rounded-full bg-cyan-400 blur-3xl opacity-10 group-hover:opacity-25 transition-all duration-500"></div>
+          <div className="absolute inset-0 rounded-2xl border border-amber-400/20 pointer-events-none transition-opacity group-hover:opacity-100 opacity-0" />
         </div>
-
-        {/* ==== About Text ==== */}
-        <div className="max-w-md text-slate-200 text-lg leading-relaxed px-3">
-          <p>
-            Hi, I’m{" "}
-            <span className="text-cyan-400 font-medium">
-              Pratham Kaushik
-            </span>{" "}
-            — a passionate Full-Stack Developer who loves crafting interactive,
-            animated, and modern web experiences.
-          </p>
-          <p className="mt-4">
-            I specialize in the{" "}
-            <span className="text-cyan-400 font-medium">MERN stack</span> and
-            enjoy creating futuristic UIs that blend creativity with
-            performance. Currently exploring advanced front-end animations and
-            3D visualizations for immersive user experiences.
-          </p>
+        <div className="max-w-lg text-zinc-300 text-left leading-relaxed px-2">
+          <p className="text-base md:text-lg">{summary}</p>
         </div>
       </motion.div>
     </section>

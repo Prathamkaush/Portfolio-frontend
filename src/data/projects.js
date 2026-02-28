@@ -1,22 +1,37 @@
 export const projects = [
   {
     id: 1,
-    title: 'Photography Portfolio Website - Freelance Project',
+    title: "Shopybucks — Multi-Vendor Commerce Platform",
+    tagline: "Meesho-style multi-panel commerce (Admin, Seller, Employee, User)",
     description:
-      'A modern full-stack photography portfolio website built for showcasing professional work, managing client galleries, and handling contact forms with smooth animations and a futuristic design.',
-    tech: ['React', 'Node.js', 'Express', 'Neon PostgreSQL', 'Render', 'Vercel'],
-    github: 'https://github.com/Prathamkaush/Photography-backend', 
-    demo: 'https://sumit-photography-4zk1wmii0-pratham-kaushiks-projects.vercel.app/', 
-    image: '/images/photograph.png',
+      "Architected backend services for sellers, admins, employees, and end users. Built product management, stock validation, order processing, invoice generation, and shipping modules. Owned backend integrations, deployments, and production debugging.",
+    tech: [
+      "NestJS",
+      "Prisma",
+      "MariaDB",
+      "Redis",
+      "Kafka",
+      "Razorpay",
+      "Easebuzz",
+      "Delhivery",
+      "Ekart",
+    ],
+    github: "https://github.com/Prathamkaush",
+    demo: null,
+    // Add your screenshot: image: "/images/shopybucks.png" or images: ["/images/admin.png", "/images/sellers.png", ...]
+    image: null,
+    images: [],
   },
   {
     id: 2,
-    title: 'Book Blog Platform',
+    title: "Automation Bot",
+    tagline: "Scheduled tasks & notifications (In Progress)",
     description:
-      'A server-rendered blogging platform for book enthusiasts using the OpenBook API. Users can explore book covers, post reviews, and view book details fetched dynamically from external APIs.',
-    tech: ['Node.js', 'Express', 'EJS', 'OpenBook API', 'PostgreSQL', 'Render'],
-    github: 'https://github.com/Prathamkaush/book-keeping-blog',
-    demo: 'https://book-keeping-blog.onrender.com/', 
-    image: '/images/book.png',
+      "Building a Node.js automation bot for scheduled tasks and notifications. Integrated GPT-based APIs, Supabase, and Telegram bot workflows.",
+    tech: ["Node.js", "GPT APIs", "Supabase", "Telegram Bot"],
+    github: "https://github.com/Prathamkaush",
+    demo: null,
+    image: null,
+    images: [], // Add bot screenshots when you have them
   },
 ];
