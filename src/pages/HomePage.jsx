@@ -7,7 +7,7 @@ import Education from "../components/Education";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import ScrollPower from "../components/ScrollPower";
+
 
 export default function HomePage() {
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function HomePage() {
   }, []);
   return (
     <>
-      <ScrollPower />
+
       <main className="max-w-5xl mx-auto px-6 pt-28 md:pt-32">
         <Hero />
         <Projects />

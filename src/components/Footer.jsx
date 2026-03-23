@@ -10,15 +10,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="mt-12 py-8 border-t border-zinc-800/80">
-      <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="mt-24 py-10 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+      
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
         <div className="text-center md:text-left">
           <div className="text-sm text-zinc-500">
-            © {year} <span className="font-medium text-zinc-300">Pratham Kaushik</span>
+            © {year} <span className="font-bold text-white tracking-wide">PRATHAM</span> <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-emerald-400">KAUSHIK</span>
           </div>
-          <div className="text-xs text-zinc-600 mt-1">Backend / Full-Stack Engineer</div>
+          <div className="text-sm font-medium text-zinc-600 mt-2">Backend / Full-Stack Engineer</div>
         </div>
-        <nav className="flex items-center gap-3">
+        
+        <nav className="flex items-center gap-4">
           {socials.map(({ id, href, label, Icon }) => (
             <a
               key={id}
@@ -26,17 +29,17 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="p-2 rounded-lg text-zinc-500 hover:text-amber-400 hover:bg-amber-400/10 transition"
+              className="p-3 rounded-xl bg-zinc-900/50 border border-white/5 text-zinc-400 hover:text-white hover:border-purple-500/30 hover:shadow-[0_0_15px_rgba(147,51,234,0.2)] transition-all group"
             >
-              <Icon className="w-5 h-5" />
+              <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
             </a>
           ))}
           <a
             href="#home"
             aria-label="Back to top"
-            className="p-2 rounded-lg border border-zinc-700 text-zinc-500 hover:border-amber-400/40 hover:text-amber-400 transition"
+            className="p-3 rounded-xl bg-zinc-900/50 border border-white/5 text-emerald-400 hover:text-white hover:border-emerald-500/30 hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all group ml-4"
           >
-            <FaChevronUp className="w-4 h-4" />
+            <FaChevronUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
           </a>
         </nav>
       </div>

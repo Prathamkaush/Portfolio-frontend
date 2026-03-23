@@ -1,89 +1,104 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ExternalLink, Github } from "lucide-react";
+import { Mail, Phone, MapPin, ExternalLink, Github, ChevronDown } from "lucide-react";
+import ThreeScene from "./ThreeScene";
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
-    <section className="py-16 md:py-24" id="home">
-      <div className="max-w-4xl mx-auto text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="text-amber-400 font-medium text-sm uppercase tracking-wider mb-2"
-        >
-          Backend / Full-Stack Engineer
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.08 }}
-          className="text-4xl md:text-5xl font-bold text-zinc-100"
-        >
-          PRATHAM KAUSHIK
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="mt-3 text-lg text-zinc-400 max-w-2xl mx-auto"
-        >
-          NestJS · Next.js · Distributed Systems
-        </motion.p>
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden" id="home">
+      {/* 3D Background */}
+      <ThreeScene />
+
+      {/* Content Overlay */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-zinc-500"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center"
         >
-          <a href="mailto:prathamkaushik2002@gmail.com" className="inline-flex items-center gap-2 hover:text-amber-400 transition">
-            <Mail size={16} /> prathamkaushik2002@gmail.com
-          </a>
-          <a href="tel:+917669512750" className="inline-flex items-center gap-2 hover:text-amber-400 transition">
-            <Phone size={16} /> +91 76695 12750
-          </a>
-          <span className="inline-flex items-center gap-2">
-            <MapPin size={16} /> India · Open to Remote
-          </span>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-6 flex justify-center gap-3 flex-wrap"
-        >
-          <a href="#projects" className="btn-primary inline-flex items-center gap-2">
-            Projects
-          </a>
-          <a href="#contact" className="btn-secondary inline-flex items-center gap-2">
-            Contact
-          </a>
-          <a
-            href="https://github.com/Prathamkaush"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-secondary inline-flex items-center gap-2"
+          <motion.div variants={itemVariants} className="mb-4 inline-block">
+            <span className="tag shadow-[0_0_15px_rgba(147,51,234,0.3)]">
+              Backend / Full-Stack Engineer
+            </span>
+          </motion.div>
+
+          <motion.h1 
+            variants={itemVariants} 
+            className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl"
           >
-            <Github size={18} /> Personal GitHub
-          </a>
-          <a
-            href="https://github.com/prathamcodecody-code"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-secondary inline-flex items-center gap-2"
+            Hi, I'm <span className="text-gradient">Pratham</span>
+          </motion.h1>
+
+          <motion.p 
+            variants={itemVariants} 
+            className="text-xl md:text-2xl text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed mb-8"
           >
-            <Github size={18} /> Work GitHub
-          </a>
-          <a
-            href="https://pratham-kaushik.vercel.app"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-secondary inline-flex items-center gap-2"
+            Crafting scalable systems with <span className="text-white font-medium">NestJS</span>, <span className="text-white font-medium">Next.js</span>, and robust distributed architectures.
+          </motion.p>
+
+          <motion.div
+            variants={itemVariants}
+            className="glass-panel py-4 px-6 mb-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm md:text-base text-zinc-300 mx-auto"
           >
-            <ExternalLink size={16} /> Portfolio
-          </a>
+            <a href="mailto:prathamkaushik2002@gmail.com" className="inline-flex items-center gap-2 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">
+              <Mail size={18} className="text-emerald-400" /> prathamkaushik2002@gmail.com
+            </a>
+            <a href="tel:+917669512750" className="inline-flex items-center gap-2 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">
+              <Phone size={18} className="text-emerald-400" /> +91 76695 12750
+            </a>
+            <span className="inline-flex items-center gap-2 text-zinc-400">
+              <MapPin size={18} className="text-purple-400" /> India · Open to Remote
+            </span>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4">
+            <a href="#projects" className="btn-primary inline-flex items-center gap-2 group">
+              View Projects
+            </a>
+            <a href="#contact" className="btn-secondary inline-flex items-center gap-2">
+              Contact Me
+            </a>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="mt-12 flex justify-center gap-6">
+            <a href="https://github.com/Prathamkaush" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white hover:scale-110 transition-transform" aria-label="Personal GitHub">
+              <Github size={24} />
+            </a>
+            <a href="https://github.com/prathamcodecody-code" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white hover:scale-110 transition-transform" aria-label="Work GitHub">
+              <Github size={24} />
+            </a>
+            <a href="https://pratham-kaushik.vercel.app" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white hover:scale-110 transition-transform" aria-label="Portfolio">
+              <ExternalLink size={24} />
+            </a>
+          </motion.div>
         </motion.div>
       </div>
+
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 1.5, duration: 2, repeat: Infinity }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-zinc-500"
+      >
+        <ChevronDown size={32} />
+      </motion.div>
     </section>
   );
 }
